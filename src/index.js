@@ -135,7 +135,7 @@ class index extends Component {
             display={display ? display : "default"}
             onChange={handleDateChanged}
             date={date}
-            mode={mode ? mode : "datetime"}
+            mode={mode ? mode : "date"}
             minimumDate={minDate && this.getDate(minDate)}
             maximumDate={maxDate && this.getDate(maxDate)}
             minuteInterval={minuteInterval ? minuteInterval : null}
@@ -162,20 +162,19 @@ class index extends Component {
 index.defaultProps = { androidMode: "default" };
 
 index.propTypes = {
-  mode: PropTypes.string.isRequired,
-  display: PropTypes.string.isRequired,
-  date: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired || PropTypes.string.isRequired,
   handleDateChanged: PropTypes.func.isRequired,
-  cancelBtnText: PropTypes.string.isRequired,
   handleCancelBtnPress: PropTypes.func.isRequired,
-  confirmBtnText: PropTypes.string.isRequired,
   handleConfirmButtonPress: PropTypes.func.isRequired,
+  mode: PropTypes.string,
+  display: PropTypes.string,
+  cancelBtnText: PropTypes.string,
+  confirmBtnText: PropTypes.string,
   minDate: PropTypes.object,
   maxDate: PropTypes.object,
   minuteInterval: PropTypes.number,
   timeZoneOffsetInMinutes: PropTypes.number,
   is24Hour: PropTypes.bool,
-  iosBottomSheetCustomHeader: PropTypes.string,
   iosBottomSheetContainerStyles: PropTypes.object,
   iosBottomSheetHeaderStyles: PropTypes.object,
   iosBottomSheetContentStyles: PropTypes.object,
